@@ -765,6 +765,7 @@ int decode_map(codebook *s, oggpack_buffer *b, ogg_int32_t *v, int point);
 static int decode_map(codebook *s, oggpack_buffer *b, ogg_int32_t *v, int point){
   ogg_uint32_t entry = decode_packed_entry_number(s,b);
   int i;
+  if(entry==UINT_MAX)return -1;
   if(oggpack_eop(b))return(-1);
 
   /* 1 used by test file 0 */

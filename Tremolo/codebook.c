@@ -906,7 +906,12 @@ long vorbis_book_decodev_set(codebook *book,ogg_int32_t *a,
         a[i++]=v[j];
     }
   }else{
-    memset(a, 0, sizeof(*a) * n);
+    int i,j;
+
+    for(i=0;i<n;){
+      for (j=0;j<book->dim && i < n;j++)
+        a[i++]=0;
+    }
   }
 
   return 0;

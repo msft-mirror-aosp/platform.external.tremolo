@@ -1,8 +1,6 @@
 {
     "presubmit": [
-        // uses ubsan sanitizers, which are no longer populated in the base system image
-        // TODO(b/221936773)
-        // { "name": "oob_oggpack_look" }
+        { "name": "oob_oggpack_look" }
     ],
 
     // tests which require dynamic content

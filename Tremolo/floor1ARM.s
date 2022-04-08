@@ -35,7 +35,6 @@
     .text
 
 	.global	render_lineARM
-	.type render_lineARM, %function
 
 render_lineARM:
 	@ r0 = n

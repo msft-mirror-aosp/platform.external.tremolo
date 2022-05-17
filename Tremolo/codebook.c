@@ -765,6 +765,7 @@ int decode_map(codebook *s, oggpack_buffer *b, ogg_int32_t *v, int point);
 static int decode_map(codebook *s, oggpack_buffer *b, ogg_int32_t *v, int point){
   ogg_uint32_t entry = decode_packed_entry_number(s,b);
   int i;
+  if(entry==UINT_MAX)return -1;
   if(oggpack_eop(b))return(-1);
 
   /* 1 used by test file 0 */
@@ -905,12 +906,7 @@ long vorbis_book_decodev_set(codebook *book,ogg_int32_t *a,
         a[i++]=v[j];
     }
   }else{
-    int i,j;
-
-    for(i=0;i<n;){
-      for (j=0;j<book->dim && i < n;j++)
-        a[i++]=0;
-    }
+    memset(a, 0, sizeof(*a) * n);
   }
 
   return 0;

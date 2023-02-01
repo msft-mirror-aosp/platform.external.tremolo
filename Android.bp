@@ -69,6 +69,9 @@ cc_library {
         x86_64: {
             cflags: ["-DONLY_C"],
         },
+        riscv64: {
+            cflags: ["-DONLY_C"],
+        },
     },
 
     cflags: [
@@ -96,4 +99,9 @@ cc_library {
         },
     },
     min_sdk_version: "29",
+    apex_available: [
+        "//apex_available:platform",
+        "com.android.media",
+        "com.android.media.swcodec",
+    ],
 }

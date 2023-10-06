@@ -22,15 +22,15 @@ To test 32-bit binary push binaries from nativetest.
 adb push ${OUT}/data/nativetest/VorbisDecoderTest/VorbisDecoderTest /data/local/tmp/
 ```
 
-The resource file for the tests is taken from [here](https://storage.googleapis.com/android_media/external/tremolo/tests/VorbisDecoderRes-1.0.zip). Download, unzip and push these files into device for testing.
+The resource file for the tests is taken from [here](https://dl.google.com/android-unittest/media/external/tremolo/tests/VorbisDecoderRes-1.0.zip). Download, unzip and push these files into device for testing.
 
 ```
-adb push VorbisDecoderTestRes /data/local/tmp/
+adb push VorbisDecoderRes-1.0 /sdcard/test/
 ```
 
 usage: VorbisDecoderTest -P \<path_to_folder\> -C <remove_output_file>
 ```
-adb shell /data/local/tmp/VorbisDecoderTest -P /data/local/tmp/VorbisDecoderTestRes/ -C true
+adb shell /data/local/tmp/VorbisDecoderTest -P /sdcard/test/VorbisDecoderRes-1.0/ -C true
 ```
 Alternatively, the test can also be run using atest command.
 
